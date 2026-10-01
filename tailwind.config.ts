@@ -1,61 +1,32 @@
 import type { Config } from 'tailwindcss'
 
+// Ledger palette: light paper, green-grey rules, dark ink, one green accent.
 const config: Config = {
-  content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
+  content: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}', './lib/**/*.{ts,tsx}'],
   theme: {
     extend: {
       colors: {
-        background: '#1a1a1a',
-        foreground: '#ffffff',
-        muted: 'rgba(255, 255, 255, 0.5)',
-        'line-primary': 'rgba(255, 255, 255, 0.15)',
-        'line-secondary': 'rgba(255, 255, 255, 0.08)',
-        'line-glow': 'rgba(255, 255, 255, 0.4)',
+        paper: '#F6F7F4',
+        'paper-2': '#EEF1EC',
+        rule: '#C8D2CA',
+        ink: '#17201B',
+        'ink-2': '#4A5750',
+        green: '#1E6F50',
+        'green-dark': '#165840',
+        red: '#B2412B',
       },
       fontFamily: {
-        sans: ['var(--font-geist)', 'Inter', 'system-ui', 'sans-serif'],
-        mono: ['var(--font-geist-mono)', 'monospace'],
+        sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
+        mono: ['var(--font-mono)', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
       },
-      letterSpacing: {
-        'ultra-wide': '0.25em',
-        'super-wide': '0.15em',
+      maxWidth: {
+        content: '1120px',
+        copy: '68ch',
       },
-      animation: {
-        'draw-line': 'drawLine 1.5s ease-out forwards',
-        'fade-up': 'fadeUp 0.8s ease-out forwards',
-        'glow-pulse': 'glowPulse 2s ease-in-out infinite',
-        'rotate-slow': 'rotateSlow 30s linear infinite',
-        'float': 'float 6s ease-in-out infinite',
-      },
-      keyframes: {
-        drawLine: {
-          '0%': { strokeDashoffset: '1000' },
-          '100%': { strokeDashoffset: '0' },
-        },
-        fadeUp: {
-          '0%': { opacity: '0', transform: 'translateY(30px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
-        },
-        glowPulse: {
-          '0%, 100%': { opacity: '0.4' },
-          '50%': { opacity: '1' },
-        },
-        rotateSlow: {
-          '0%': { transform: 'rotateY(0deg) rotateX(15deg)' },
-          '100%': { transform: 'rotateY(360deg) rotateX(15deg)' },
-        },
-        float: {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-20px)' },
-        },
-      },
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'noise': "url('/noise.png')",
+      fontSize: {
+        display: ['clamp(2.25rem, 5.2vw, 3.75rem)', { lineHeight: '1.04', letterSpacing: '-0.015em' }],
+        h2: ['1.75rem', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
+        h3: ['1.25rem', { lineHeight: '1.3' }],
       },
     },
   },
